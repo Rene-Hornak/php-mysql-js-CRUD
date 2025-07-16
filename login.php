@@ -2,13 +2,19 @@
     require_once "pdo.php";
     session_start();
 
-    // button cancel redirect to index.php
+    // If user is already logged in, redirect to index.php
+    if (isset($_SESSION['user_id'])) {
+        header("Location: index.php");
+        return;
+    }
+    
+    // If the cancel button is pressed, redirect to index.php
     if (isset($_POST['cancel'])){
         header("Location: index.php");
         return;
     }
 
-    // check Form data, correct data let log in into web-application
+    // If the form is submitted, process the login
     if (isset($_POST['email']) && isset($_POST['password'])) {
         unset($_SESSION['email']); // Log out current user
 
