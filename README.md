@@ -15,6 +15,7 @@ Used SQL in Database:
 
     ALTER TABLE users ADD INDEX(email);
     ALTER TABLE users ADD INDEX(password);
+```
 
 ```sql
     CREATE TABLE Profile (
@@ -33,3 +34,4 @@ Used SQL in Database:
             REFERENCES users (user_id)
             ON DELETE CASCADE ON UPDATE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
