@@ -15,7 +15,7 @@
         strlen($_POST['emailAddress']) < 1 || strlen($_POST['subject']) < 1 || 
         strlen($_POST['abstract']) < 1) {
             $_SESSION['error'] = "All fields are required";
-            header("Location: add.php");
+            header("Location: add.php?user_id=" . $_GET['user_id']);
             return;
         }
 
@@ -52,10 +52,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Profile add</title>
+    <title>Profile edit</title>
 </head>
 <body>
-    <h1>Adding Profile</h1> 
+    <h1>Editing Profile</h1> 
     <?php
         // Flash messages for error 
         if (isset($_SESSION['error'])) {    
@@ -87,7 +87,7 @@
 
         <input type="hidden" name="user_id" value="<?= htmlentities($_SESSION['user_id']) ?>"/>
 
-        <input type="submit" value="Add"/>
+        <input type="submit" value="Edit"/>
         <a href="index.php">Cancel</a>
     </form>
 </body>
